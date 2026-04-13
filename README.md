@@ -63,4 +63,56 @@ Retrieves Binance P2P advertisement data.
     ]
     ```
 
+### `GET /api/market`
+
+Retrieves consolidated market data for an asset/fiat pair, including best bid/ask and spread.
+
+-   **Method:** `GET`
+-   **URL:** `/api/market`
+-   **Query Parameters:**
+    -   `asset` (required): The cryptocurrency asset (e.g., `USDT`, `BTC`).
+    -   `fiat` (required): The fiat currency (e.g., `VES`, `USD`).
+    -   `page` (optional): Page number (default `1`).
+    -   `rows` (optional): Number of rows per trade type (default `10`).
+-   **Example Request:**
+    ```
+    GET /api/market?asset=BTC&fiat=USD
+    ```
+-   **Response:**
+    ```json
+    {
+      "asset": "BTC",
+      "best_ask": 73264.74,
+      "best_bid": 79054.59,
+      "buy_offers_count": 10,
+      "buy_prices_distribution": [
+        73950.44,
+        74583.03,
+        75381.21,
+        76273.04,
+        76419.44,
+        76492.64,
+        77590.62,
+        77590.62,
+        79054.59,
+        79054.59
+      ],
+      "fiat": "USD",
+      "sell_offers_count": 10,
+      "sell_prices_distribution": [
+        73264.74,
+        73264.74,
+        73272.07,
+        73338.01,
+        73491.49,
+        73564.69,
+        73637.89,
+        73997.39,
+        74772.47,
+        79713.38
+      ],
+      "spread": -5789.85
+    }
+    ```
+
 ---
